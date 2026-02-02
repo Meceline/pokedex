@@ -1,5 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { POKEMON_LIST } from './pokemon-list.fake';
+import { Pokemon } from './pokemon.interface';
 
 @Component({
   selector: 'app-root',
@@ -7,26 +9,21 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
-  title = 'Hola';
-  name = signal("Pikachu");
-  life = signal(21);
-  imageSrc = signal("../assets/img/pikachu.png");
+  title = 'Pokedex';
+  pokemonList = signal(POKEMON_LIST);
 
-  size = computed(() => {
-    //Taille est un dérivé de life --> computed()
-    const life = this.life();
-
-    if (life < 15) return 'Petit';
-    if (life < 25) return 'Moyen';
+  size(pokemon: Pokemon){
+    if (pokemon.life < 15) return 'Petit';
+    if (pokemon.life < 25) return 'Moyen';
     return 'Grand';
-  });
+  };
 
-
-  incrementLife(){
-    this.life.update(v => v+1);
+  incrementLife(pokemon: Pokemon){
+    pokemon.life = pokemon.life + 1;
   }
-  decrementLife(){
-    this.life.update(v => v-1);
+  decrementLife(pokemon: Pokemon){
+    pokemon.life = pokemon.life - 1;
   }
 }
