@@ -1,11 +1,10 @@
-import { Component, computed, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
 import { POKEMON_LIST } from './pokemon-list.fake';
 import { Pokemon } from './pokemon.interface';
-
+import { PokemonBorderDirective } from './pokemon-border.directive';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [PokemonBorderDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
