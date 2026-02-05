@@ -5,6 +5,7 @@ import { POKEMON_LIST } from './pokemon-list.fake';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PokemonService {
 
   getPokemonList(): PokemonList{
