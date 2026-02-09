@@ -18,7 +18,7 @@ export class PokemonService {
     }
     return pokemon;
   }
-  getPokemonTypeLis(): string[]{
+  getPokemonTypeList(): string[]{
     return [
       'Plante',
       'Feu',
